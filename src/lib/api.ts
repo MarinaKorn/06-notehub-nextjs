@@ -1,12 +1,12 @@
 import axios from 'axios';
 import type { Note, NoteForPost } from '../../types/note';
 
+
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 const AUTH_HEADER = {
   Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTEHUB_TOKEN}`,
 };
-
 export type NotesResponse = {
   notes: Note[];
   totalPages: number;
