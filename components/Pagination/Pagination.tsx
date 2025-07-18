@@ -8,7 +8,7 @@ interface PaginationProps {
   currentPage: number
 }
 
-export default function Paginate({ totalPages, onPageChange, currentPage }: PaginationProps) {
+export default function Pagination({ totalPages, onPageChange, currentPage }: PaginationProps) {
   return (
     <ReactPaginate
       pageCount={totalPages}
@@ -16,8 +16,8 @@ export default function Paginate({ totalPages, onPageChange, currentPage }: Pagi
       pageRangeDisplayed={5}
       marginPagesDisplayed={1}
       onPageChange={({ selected }: { selected: number }) => {
-  onPageChange(selected + 1)
-}}
+        onPageChange(selected + 1)
+      }}
       containerClassName={css.pagination}
       activeClassName={css.active}
       nextLabel='→'

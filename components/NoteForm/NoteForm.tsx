@@ -17,8 +17,7 @@ const CreatingNoteSchema = Yup.object().shape({
     .min(3, 'Title should consist of at least 3 symbols.')
     .required('Title is required.'),
   content: Yup.string()
-    .max(500, 'Content must not contain more than 500 symbols.')
-    .required('Content is required'),
+    .max(500, 'Content must not contain more than 500 symbols.'), // исправлено
   tag: Yup.string()
     .oneOf(['Todo', 'Work', 'Personal', 'Meeting', 'Shopping'], 'Invalid category')
     .required('Category is required.'),
@@ -45,15 +44,15 @@ export default function NoteForm({ onClose }: NoteFormProps) {
   }
 
   return (
-    <Formik
-      initialValues={{
-        title: '',
-        content: '',
-        tag: '',
-      }}
-      onSubmit={handleSubmit}
-      validationSchema={CreatingNoteSchema}
-    >
+<Formik<NoteForPost>
+  initialValues={{
+    title: '',
+    content: '',
+    tag: '',
+  }}
+  validationSchema={CreatingNoteSchema}
+  onSubmit={handleSubmit}
+>
       <Form className={css.form}>
         <div className={css.formGroup}>
           <label htmlFor='title'>Title</label>
